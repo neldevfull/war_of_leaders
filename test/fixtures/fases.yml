@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  descricao: MyString
+  pontuacao: 1
+  status: MyString
+
+two:
+  descricao: MyString
+  pontuacao: 1
+  status: MyString
