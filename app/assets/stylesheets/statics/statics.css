@@ -1,0 +1,23 @@
+/* Navbar */
+.navbar {
+  border-radius: 0;
+  border: 0;
+  height: 40px; 
+}
+.navbar-fixed-top {
+  position: fixed;
+  z-index: 1030;
+}
+.navbar-left {
+  margin-top: -.5em !important; 
+}
+.navbar-edit {
+    float: right;
+    margin: .5em 1em 0 0;
+    color:#F8FFEA;
+}
+.navbar-edit li a {
+    color: white;
+    background-color: transparent !important;
+    cursor: pointer;
+}

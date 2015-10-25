@@ -31,13 +31,15 @@ ActiveRecord::Schema.define(version: 20151022223239) do
   end
 
   create_table "users", force: :cascade do |t|
-    t.string   "fullname",    null: false
-    t.string   "email",       null: false
+    t.string   "nikename",        null: false
+    t.string   "email",           null: false
+    t.string   "password_digest", null: false
+    t.string   "gender",          null: false
     t.string   "institution"
     t.string   "course"
-    t.string   "f_type"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.string   "profile",         null: false
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
   end
 
 end

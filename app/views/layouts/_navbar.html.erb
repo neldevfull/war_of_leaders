@@ -2,26 +2,22 @@
 	<nav class="navbar navbar-inverse navbar-fixed-top">	
 		<div class="container-fluid">				
 			<ul class="nav navbar-nav navbar-left">
-				<li>
-					<%=
-						link_to "War of Leaders", root_path,
-							class: "navbar-btn _brand"
-					%>
-				</li>
-				<li><a href="#" class="navbar-btn">Sobre Jogo</a></li>
-				<li><a href="#" class="navbar-btn">Regras Jogo</a></li>				
+				<li><a href="#" class="navbar-btn">Sobre o Jogo</a></li>
+				<li><a href="#" class="navbar-btn">Regras</a></li>
+				<li><a href="#" class="navbar-btn">Contato</a></li>				
 			</ul>
-			<ul class="navbar-nav navbar-right">
-				<li class="dropdown">
-					<a class="dropdown-toggle" href="#">
-						<span>Minha conta</span>
-						<b class="caret"></b>
-					</a>						
-				</li>
-				<li class="dropdown">
-					<a href="#">Sair</a>
-				</li>
-			</ul>
+			 <ul class="nav navbar-edit">
+                <li class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown">
+                    	Idiomas
+                    	<b class="caret"></b>
+                    </a>
+                    <ul class="dropdown-menu pull-right"
+                    	style="color:black">
+                    	<p>Portugues</p>
+                    </ul>
+                </li>
+            </ul> 
 		</div>								 									
 	</nav>		
 </header>

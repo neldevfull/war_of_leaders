@@ -1,235 +1,99 @@
-/* Menu start */
-.navbar {
-  border-radius: 0;
-  border: 0;
-  height: 40px; 
-}
-.navbar-fixed-top {
-  position: fixed;
-  z-index: 1030;
-}
-.navbar-nav {
-  margin-top: -.5em;
-}
-.navbar-right {
-  margin: .5em .5em 0 0;
-}
-._brand {
-  font-weight: bold !important;
-  color: white !important;
-}
-.dropdown {
-  margin: .5em 2em 0 0;
-}
-.sidebar {
-  width: 15%;
-  position: fixed;
-  top: 0;
-  bottom: 0;
-  left: 0; 
-  padding-top: 5em;
-  z-index: 1000;
-  display: block;    
-  overflow-x: hidden;
-  overflow-y: auto;
-  background-color: #ccc;
-  background-image: url("../imgs/img-bg.jpg");
-  font-size: 1em;
-  line-height: 1.5em;
-  text-shadow: white 0 1em 1em;
-}
-.sidebar ul li a{
-  padding-left: 1.8em;
-}
-.sidebar ul li a {
-  color: #333;  
-}
-.sidebar ul li a:hover {  
-  background-color: #bfbfbf; 
-} 
-/* end */
-
-/* Sidebar icons start */
-._patients:before {
-  content: '\e800'; 
-  font-family: 'patients';
-    speak: none;
-    display: inline-block;
-    color: #333333;
-    padding-right: 1.2em;    
-}
-._users:before {
-  content: '\e800'; 
-  font-family: 'users';
-    speak: none;
-    display: inline-block;
-    color: #333333;
-    padding-right: 1.2em;     
-}
-._insurance:before {
-  content: '\e800'; 
-  font-family: 'insurance';
-    speak: none;
-    display: inline-block;
-    color: #333333;
-    padding-right: 1.2em;     
-}
-._calendar:before {
-  content: '\e800'; 
-  font-family: 'calendar';
-    speak: none;
-    display: inline-block;
-    color: #333333;
-    padding-right: 1.2em;    
-}
-._charts:after {
-  content: '\e801'; 
-  font-family: 'charts';
-    speak: none;
-    display: inline-block;
-    color: #333333;
-    padding-right: 1.2em;    
-}
-._reports:after {
-  content: '\e800'; 
-  font-family: 'reports';
-    speak: none;
-    display: inline-block;
-    color: #333333;
-    padding-right: 1.2em;    
-}
- ._config:after {
-  content: '\e801'; 
-  font-family: 'config';
-    speak: none;
-    display: inline-block;
-    color: #333333;
-    padding-right: 1.2em;    
+/* Initialize Style start */
+html, body { 
+    margin:0; 
+    height: 100%;
 }
 /* end */
 
-/* Main start */
-.centralize {
-  width: 85%;
-  float: right;
-  padding: 2em 2em 0 2em;
-  box-sizing: border-box;  
-}
-/* end */
+/* -- Home -- start */
 
-/* Form Register start */
-.panel-heading h3 {
-  height: 10px;
-  margin-top: -2px;
+/* Background start */
+.bg {
+    width: 100%;
+    background-image: url('background-home.jpg');
+    /*background:
+        linear-gradient(27deg, #151515 5px, transparent 5px) 0 5px,
+        linear-gradient(207deg, #151515 5px, transparent 5px) 10px 0px,
+        linear-gradient(27deg, #222 5px, transparent 5px) 0px 10px,
+        linear-gradient(207deg, #222 5px, transparent 5px) 10px 5px,
+        linear-gradient(90deg, #1b1b1b 10px, transparent 10px),
+        linear-gradient(#1d1d1d 25%, #1a1a1a 25%, #1a1a1a 50%, transparent 50%, transparent 75%, #242424 75%, #242424);
+    background-color: #131313;
+    background-size: 20px 20px;*/
+    height: 90%;
 }
-.form-group {
-  padding: 1.5em 0;
-  clear: both;
+.home-bg {
+    position: absolute;
+    top: 0;
 }
-label {
-  cursor: pointer;
-}
-/* Space */
-._sl {
-  margin-right: .5em;
-}
-._fl-right {
-  float:right;
-  margin-right: 1em;
-}
-.form-control {
-  margin-top: -.5em;
-}
-.btn-success {
-  margin: .5em 0 1em 1em;
-}
-/* Label Space */
-._ls {  
-  font-weight: bold;
-}
-/* Label Width */
-._lbw {
-  width: 11%;
-}
-/* Space Margin */
-._mp {
-  margin-right: 2em;  
-}
-/* Fixed Status Insurance */
-._f-status {
-  margin-left: 1em !important;
-} 
-._select {
-  width: 20%;
-  display: inline;
-}
-/* Correction button */
-._btnc {
-  margin-top: -.5em;
-}
-._find:after { 
-  content: '\e800'; 
-  font-family: 'find';
-  speak: none;
-  display: inline-block;
-  color: #333333;   
-}
-._new-patient {
-  font-size: 1.5em;
-  background-color: #F2F2F2;
-}
-._btn-back {
-  margin: -.5em 0 0 1em;
-}
-._lessen-row {
-  margin-bottom: -.5em;
-}
-._plus-row {
-  margin-top: 1em;
-}
-.radio-inline, .checkbox-inline {
-  padding-left: 35px !important;
-}
-/* end */ 
+/* Background end */
 
-/* Counter */
-#counter {
-  display: none;
+/* Box start */
+.transp-bg {
+    height: 100%;
+    background-color: rgba(0, 0, 0, .5) !important; 
 }
+.home-box {    
+    width: 100%;
+    height: 100%;
+    padding: 5em 0 0 2.5em;
+    /*background-color: rgba(255, 0, 0, .5) !important;*/
+}
+/* Left */
+.box-left {
+    width: 50%;    
+    float: left;
+}
+.box-left img {
+    width: 50%;
+    display: block;
+    margin: 0 auto;
+}
+.box-left p {
+    font-family: 'play';
+    font-size: 1.5em;
+    color: white;
+    text-align: center;
+    margin-top: 1em;
+}
+.box-left p span {
+    font-weight: bold;
+}
+.box-left p ~ p {
+    margin-top: -.5em;
+}
+/* Right*/
+.box-right {
+    width: 50%;
+    float: right;
+    /*background-color: green;*/
+}
+.form {
+    width: 75%;
+    margin: 0 auto 2em auto;
+    padding: .1em 1em 1em 1em;
+    border-radius: .5em;
+    background-color: rgba(255, 255, 255, .9) !important; 
+}
+.title-game {
+    font-family: 'play';
+    font-size: 1.2em;
+}
+.box-right p {
+    padding: .5em 0 0 0;
+    color: #4B97D2;
+}
+/* Box end */
 
-/* Grid start */
-._container-table {
-  padding: 0 1em;
-}
-._container-table table 
-tbody tr th {
-  color: #333;
-  font-weight: normal;
-}
-._container-table table 
-tbody tr th{
-  padding-bottom: .5em; 
-}
-._container-table table 
-tbody tr:nth-child(2n+1) {
-background: #eaeaea;
-}
-._btn-success {
-  float: right;
-  margin-top: -.1em;
-}
-/* end */
+/* -- Home -- end */
 
-/* ProgressBar start */  
-#progressbar {
-  display: none;
-  overflow: hidden; 
-  margin-top: -.1em; 
-}
-.ui-widget-content {
-  border: .075em solid #adadad !important;
-}
-.ui-widget-header {
-  border: .075em solid #adadad !important;
+/* -- Footer -- start */
+footer {
+    width: 100%;
+    height: 100%;
+    background-color: #900;
+    font-size: bolder;
+    color: #fff;
+    text-align: center;
 }
 /* end */

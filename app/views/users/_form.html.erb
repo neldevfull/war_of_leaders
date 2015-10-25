@@ -7,7 +7,7 @@
 		<p><%= action_value %> Usuario</p>
 	</div>
 	<%= form_for @user, :remote => true, :format => :json,
-		:html => { :id => 'new_user' } do |f| %>		
+		:html => { :id => 'new_user' } do |f| %>	
 		<div class="panel panel-default">
 			<div class="panel-heading">
 				<div class="row">					
@@ -17,9 +17,9 @@
 			<div class="panel-body">
 				<!-- Name -->
 				<div class="form-group row _lessen-row">
-					<label for="user_fullname" class="control-label _sl col-sm-1 col-lg-1">Nome</label>
+					<label for="user_nikename" class="control-label _sl col-sm-1 col-lg-1">NikeName</label>
 					<div class="col-xs-12 col-sm-4 col-lg-7">
-						<%= f.text_field :fullname, class: "form-control" %>	 											
+						<%= f.text_field :nikename, class: "form-control" %>	 											
 					</div>
 				</div>
 				<!-- email -->
@@ -40,6 +40,16 @@
 						<%= f.password_field :password_confirmation, class: "form-control" %>						
 					</div>
 				</div>
+				<!-- Gender -->
+				<div class="form-group row _lessen-row">
+					<label class="control-label _sl col-sm-1 col-lg-1">Sexo</label>
+					<div class="radio-inline">
+						<%= f.radio_button :gender, 'male' %><label class="_ls" for="user_gender_male">Masculino</label>					
+					</div>
+					<div class="radio-inline">
+						<%= f.radio_button :gender, 'female' %><label class="_ls" for="user_gender_female">Feminino</label>						
+					</div>
+				</div>
 				<!-- Institution -->
 				<div class="form-group row _lessen-row">
 					<label for="user_institution" class="control-label _sl col-sm-1 col-lg-1">Instituiçao</label>
@@ -53,6 +63,12 @@
 					<div class="col-xs-12 col-sm-4 col-lg-7">
 						<%= f.text_field :course, class: "form-control" %>											
 					</div>
+				</div>
+				<!-- Master or Player -->
+				<div class="form-group row _lessen-row" style="margin-top: -1em;">
+					<label class="control-label _sl col-sm-1 col-lg-1" for="user_status">Perfil</label>				
+					<%= f.select :profile, [["Master", "master"], ["Player", "player"]], {},
+						class: 'form-control _select _f-status col-sm-2 col-lg-2' %>
 				</div>
 				<!-- Buttons -->
 				<div class="button-group row _plus-row">					
