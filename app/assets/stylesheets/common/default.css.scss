@@ -1,0 +1,54 @@
+/* Vars */
+$font-size: 2em;
+
+/* Initialize */
+* {
+    font-family: "lato";
+}
+html, body { 
+    margin:0; 
+    height: 100%;    
+}
+
+body {
+    background-color: #F2F2F2 !important;
+}
+
+.row {
+    margin-left: 0 !important;
+    margin-right: 0 !important;    
+}
+.row:before, .row:after {
+    display: none !important;
+}
+
+/* Box Container */
+.box-container {        
+    width: 80%;
+    float:right;
+	padding: 5em 0 10em 0;
+    display: block !important;
+}
+
+/* Form */
+.form {
+    width: 75%;
+    margin: 0 auto 2em auto;
+    padding: .1em 1em 1em 1em;
+    border-radius: .5em;
+    background-color: rgba(255, 255, 255, .9) !important; 
+}
+
+/* Title Game */
+.title-game {
+    font-family: "play";
+    margin-bottom: .5em;
+    font-size: $font-size;
+    text-align: center;
+}
+
+/* Logo Games */
+.logo-games img {
+    display: block !important;
+    margin: 0 auto !important;
+}

@@ -1,5 +1,57 @@
 /* Fonts for Customization and Optimization */
 @font-face {
-  font-family: 'play';
-  src: url('../play.ttf');
+  font-family: "play";
+  src: url("../play.ttf");
+}
+@font-face {
+  font-family: "lato";
+  src: url("../lato.ttf");
+}
+@font-face {
+  font-family: "home";
+  src: url("../home.woff?81344841") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: "feather";
+  src: url("../feather.woff?78253187") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: "team";
+  src: url("../team.woff?25156647") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: "trophy";
+  src: url("../trophy.woff?60030465") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: "chat";
+  src: url("../chat.woff?52484687") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: "config";
+  src: url("../config.woff?30469634") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: "rules";
+  src: url("../rules.woff?18900395") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: "game";
+  src: url("../game.woff?45307921") format("woff");
+  font-weight: normal;
+  font-style: normal;
 }

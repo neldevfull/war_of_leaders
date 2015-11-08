@@ -1,0 +1,68 @@
+/* Vars */
+$font-family: 'play';
+
+/* User */
+.user-container {
+	width: 50% !important;
+	margin-top: 5%;
+}
+/* Errors User */
+.errors-user {
+	color: #d6112e;
+	font-size: 1em;
+	clear: left;
+}
+/* Button Hundred Percent*/
+._btn-usercad {
+	width: 100%;
+	font-size: 1.5em !important;
+	font-family: $font-family;
+}
+/* Password User */
+._passw-user {
+	width: 49% !important;
+	float: left;
+}
+._passw-user-confirm {
+	width: 49% !important;
+	float: right;	
+}
+
+/* Profile and Keymaster */
+.profile-keymaster {
+	padding: 1em  0 2em 0;
+}
+
+/* Profile */
+#user_profile {
+	width: 49%;		
+}
+.user-form-profile {
+	width: 49% !important;
+	float: left;
+	margin-top: -1em;
+}
+
+/* Key Master */
+#user_key_master {
+	float: right;
+}
+.user-form-keymaster {
+	width: 49% !important;
+	float: right;
+	margin-top: -1em;
+}
+
+/* Key master */
+#user_key_master {
+	display: none;
+}
+
+.policy {
+	font-family: sans-serif;
+	color: #5e5e5e;
+	padding: 1em 0;
+}
+.policy span {
+	color: #55ACEE;
+}

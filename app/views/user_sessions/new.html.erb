@@ -1,79 +1,29 @@
-<div class="row-fluid bg home-bg">
-	<div class="transp-bg">		
-		<div class="home-box container">	
-			<div class="box-left">				
-				<%= image_tag("logo.png", :alt => "LogoType") %>
-				<p><span>Aprender</span> pode ser muito mais desafiador<span> !</span></p>
-				<p>Supere seus limites e conquiste <span>conhecimento</span></p>
-				<p>com o Game que vai superar suas <span>expectativas</span></p>
-			</div>	
-
-			<div class="box-right">
-				<%= form_for @user_session, :remote => true, :format => :json,
-					:html => { :id => 'new_user' } do |f| %>
-					<div class="form">
-						<h2 class="title-game">Entrar no Jogo</h2>
-						<!-- E-mail -->
-						<div class="form-group">
-						    <%= f.text_field :email, placeholder: "Entre com seu e-mail",
-								class: "form-control"  %>
-						</div>
-						<!-- Password and Play! -->
-						<div class="form-inline">
-						    <%= f.password_field :password, 
-					    		placeholder: "Entre com sua senha",
-								class: "form-control"  %>
-						    <%= f.submit "Jogar!",
-								class: "btn btn-success" %>
-						</div>
-						<p>						
-							<a href="">Esqueceu a senha</a>
-						</p>
-					</div>
-				<% end %>
-
-				<%= form_for @user, :remote => true, :format => :json,
-					:html => { :id => 'new_user' } do |f| %>
-					<div class="form">
-						<h2 class="title-game">Começar o Jogo!</h2>
-						<!-- Nikename -->
-						<div class="form-group">
-							<%= f.text_field :name, placeholder: "Seu nikename",
-								class: "form-control"  %>
-						</div>
-						<!-- E-mail -->
-						<div class="form-group">					  
-							<%= f.text_field :email, placeholder: "Seu endereço de e-mail",
-								class: "form-control"  %>
-						</div>
-						<!-- Passw and Confirm -->
-					    <div class="form-inline">
-					    	<%= f.password_field :password, 
-					    		placeholder: "Sua senha",
-								class: "form-control"  %>
-						    <%= f.password_field :password, 
-					    		placeholder: "Confirme sua senha",
-								class: "form-control"  %>
-					    </div>
-					    <!-- Master or Player - Inner Style -->
-						<div class="form-group"
-							style="width: 50%; padding-top: 1em;">			
-							<%= f.select :profile, 
-								[["Perfil", "Profile"], ["Master", "master"],
-									["Player", "player"]], {},
-								class: "form-control" %>
-						</div>
-						<!-- Start! - Inner Style -->
-					    <div class="button-group">
-					    	<%= f.submit "Começar!",
-								class: "btn btn-success" %>
-					    </div>
-					</div>
-				<% end %>
-			</div>
-		</div>
+<div class="container user-container">
+	<div class="alert alert-danger" style="width: 75%;
+		margin: 1em 0 0 6em;">		
+		<% if flash[:notice] %>
+			<%= flash[:notice] %>
+		<% end %>
 	</div>
+	<%= form_for @user_session do |f| %>
+		<div class="form">
+			<h2 class="title-game">Entrar no Jogo</h2>
+			<!-- E-mail -->
+			<div class="form-group">
+			    <%= f.text_field :email, placeholder: "Entre com seu e-mail",
+					class: "form-control"  %>
+			</div>
+			<!-- Password and Play! -->
+			<div class="form-inline">
+			    <%= f.password_field :password, 
+		    		placeholder: "Entre com sua senha",
+					class: "form-control"  %>
+			    <%= f.submit "Jogar!",
+					class: "btn btn-success" %>
+			</div>
+			<p style="margin-top: 1em;">						
+				<a href="">Esqueceu a senha</a>
+			</p>
+		</div>
+	<% end %>
 </div>
-<footer>
-	<p>Copyright © 2015 - by David, Edi and Nelson - All rights reserved.</p>
-</footer>

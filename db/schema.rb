@@ -11,30 +11,37 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151022223239) do
+ActiveRecord::Schema.define(version: 3) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "matters", force: :cascade do |t|
-    t.string   "urlfile",    null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+  create_table "games", force: :cascade do |t|
+    t.integer  "user_id",    default: 0
+    t.string   "title"
+    t.string   "image"
+    t.string   "slogan"
+    t.integer  "status"
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
   end
 
-  create_table "phases", force: :cascade do |t|
-    t.string   "description",                   null: false
-    t.integer  "pointers",                      null: false
-    t.string   "status",      default: "ativo", null: false
-    t.datetime "created_at",                    null: false
-    t.datetime "updated_at",                    null: false
+  add_index "games", ["user_id"], name: "index_games_on_user_id", using: :btree
+
+  create_table "teams", force: :cascade do |t|
+    t.integer  "user_id",    default: 0
+    t.integer  "number"
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
   end
+
+  add_index "teams", ["user_id"], name: "index_teams_on_user_id", using: :btree
 
   create_table "users", force: :cascade do |t|
     t.string   "nikename",        null: false
     t.string   "email",           null: false
     t.string   "password_digest", null: false
-    t.string   "gender",          null: false
+    t.string   "gender"
     t.string   "institution"
     t.string   "course"
     t.string   "profile",         null: false
@@ -42,4 +49,6 @@ ActiveRecord::Schema.define(version: 20151022223239) do
     t.datetime "updated_at",      null: false
   end
 
+  add_foreign_key "games", "users"
+  add_foreign_key "teams", "users"
 end

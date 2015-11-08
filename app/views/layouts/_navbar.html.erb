@@ -1,23 +1,54 @@
 <header>
 	<nav class="navbar navbar-inverse navbar-fixed-top">	
 		<div class="container-fluid">				
-			<ul class="nav navbar-nav navbar-left">
-				<li><a href="#" class="navbar-btn">Sobre o Jogo</a></li>
-				<li><a href="#" class="navbar-btn">Regras</a></li>
-				<li><a href="#" class="navbar-btn">Contato</a></li>				
-			</ul>
-			 <ul class="nav navbar-edit">
-                <li class="dropdown">
-                    <a class="dropdown-toggle" data-toggle="dropdown">
-                    	Idiomas
-                    	<b class="caret"></b>
-                    </a>
-                    <ul class="dropdown-menu pull-right"
-                    	style="color:black">
-                    	<p>Portugues</p>
+            <% unless @user_session.present? %>
+                <ul class="nav navbar-nav navbar-left">
+                    <li>
+                        <%=
+                            link_to image_tag("minilogo.png", :border => 0), 
+                                { :action => 'home', :controller => 'home' }, 
+                                :class => 'minilogo'
+                        %>
+                    </li>
+                </ul>
+                <ul class="nav navbar-nav navbar-left">
+                    <li><a href="#" class="navbar-btn">Sobre o Game</a></li>
+                    <li><a href="#" class="navbar-btn">Regras do Jogo</a></li>             
+                </ul>
+                 <ul class="nav navbar-nav navbar-right">
+                    <li class="dropdown">
+                        <a class="dropdown-toggle" data-toggle="dropdown">
+                        	Idiomas
+                        	<b class="caret"></b>
+                        </a>
+                        <ul class="dropdown-menu pull-right"
+                        	style="color:black">
+                        	<p>Portugues</p>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="user_sessions" data-method="delete"
+                            rel="nofollow">Sair</a>
+                    </li> 
+                </ul> 
+                <% else %>
+                    <ul class="nav navbar-nav navbar-left">
+                        <li><a href="#" class="navbar-btn">Sobre o Game</a></li>
+                        <li><a href="#" class="navbar-btn">Regras do Jogo</a></li>             
                     </ul>
-                </li>
-            </ul> 
+                    <ul class="nav navbar-nav navbar-right">
+                        <li class="dropdown">
+                            <a class="dropdown-toggle" data-toggle="dropdown">
+                                Idiomas
+                                <b class="caret"></b>
+                            </a>
+                            <ul class="dropdown-menu pull-right"
+                                style="color:black">
+                                <p>Portugues</p>
+                            </ul>
+                        </li>
+                    </ul> 
+            <% end %>
 		</div>								 									
 	</nav>		
 </header>

@@ -10,20 +10,34 @@ class UserSessionsController < ApplicationController
 
 	def create
 		@user_session = UserSession.new(session, 
-			params[:user_session])
-
+			params[:user_session])		
+		
 		if @user_session.authenticate!
-			render :json => {
-				:response => "",
-				:action   => "authenticate",
-				:fail     => false
-			}
-		else
-			render :json => {
-				:response => "Credenciais nao conferem",
-				:action   => 'authenticate',
-				:fail     => true
-			}		
+			
+			user = @user_session.current_user()
+			
+			if user.profile == "master"
+				respond_to do |format|
+					format.html {
+						redirect_to index_masters_path,
+						notice: "Autenticado com sucesso"
+					}
+				end
+			else
+				respond_to do |format|
+					format.html {
+						redirect_to index_players_path,
+						notice: "Autenticado com sucesso"
+					}
+				end
+			end
+		else			
+			respond_to do |format|
+				format.html {
+					redirect_to get_user_sessions_path,
+					notice: "Credenciais nao conferem"
+				}
+			end		
 		end
 	end
 

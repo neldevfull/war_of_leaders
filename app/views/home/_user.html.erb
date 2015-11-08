@@ -1,6 +1,6 @@
-<%= form_for @user do |f| %>
+<%= form_for @user, :url => new_user_path do |f| %>
 	<div class="form">
-		<h2 class="title-game">Começar o Jogo!</h2>
+		<h2 class="title-game-home">Começar o Jogo!</h2>
 		<!-- Nikename -->
 		<div class="form-group">
 			<%= f.text_field :nikename, placeholder: "Seu nikename",
@@ -16,15 +16,15 @@
 	    	<%= f.password_field :password, 
 	    		placeholder: "Sua senha",
 				class: "form-control"  %>
-		    <%= f.password_field :password, 
+		    <%= f.password_field :password_confirmation, 
 	    		placeholder: "Confirme sua senha",
 				class: "form-control"  %>
 	    </div>
 	    <!-- Master or Player - Inner Style -->
-		<div class="form-group"
-			style="width: 50%; padding-top: 1em;">			
+		<div class = "form-inline"
+			style =" padding: 1em 0;">			
 			<%= f.select :profile, 
-				[["Perfil", "Profile"], ["Master", "master"],
+				[["Perfil", "profile"], ["Master", "master"],
 					["Player", "player"]], {},
 				class: "form-control" %>
 		</div>

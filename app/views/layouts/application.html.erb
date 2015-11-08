@@ -8,7 +8,9 @@
 </head>
 <body>
 
-<%= render 'layouts/sidebar' %>
+<% if user_session_present? %>
+	<%= render 'layouts/sidebar' %>
+<% end %>	
 <%= render 'layouts/navbar' %>
 <%= yield %>
 

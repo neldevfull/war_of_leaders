@@ -1,0 +1,24 @@
+<% @games.each do |game| %>
+    <div class="col-md-4"><!-- Coluna de cursos -->
+        <div class="panel panel-default"><!-- Painel informativo Introdução a computação -->
+            <div class="panel-heading">
+                <h4><%= game.title %></h4>
+            </div>
+            <div class="panel-body">
+                <div class="logo-games">                
+                    <%= image_tag(game.image, :alt => game.title) %>
+                </div>
+            </div>
+            <div class="panel-heading">
+            	<small><%=  game.slogan %></small>
+            </div>
+            <div class="panel-body">
+                <div class="list-group">
+                    <a href="saiba_mais.html" class="list-group-item">Saiba mais</a>
+                </div>
+            </div>
+        </div><!-- /Painel informativo Introdução a computação -->
+
+        <hr>
+    </div><!-- /Coluna de cursos -->
+<% end %>

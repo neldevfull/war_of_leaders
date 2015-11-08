@@ -1,0 +1,135 @@
+/* Navbar */
+.minilogo {
+  margin: 0.2em;
+}
+.navbar {
+  border-radius: 0;
+  border: 0;
+  height: 40px; 
+}
+.navbar-fixed-top {
+  position: fixed;
+  z-index: 1030;
+}
+.navbar-left {
+  margin-top: -.5em !important; 
+}
+.navbar-right {
+  float: right;
+  color:#F8FFEA;
+  margin-right: 1em !important;
+}
+.navbar-right li a {
+  color: white;
+  background-color: transparent !important;
+  cursor: pointer;
+}
+
+/* Sidebar */
+.sidebar {
+  width: 20%;  
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0; 
+  padding-top: 5em;
+  z-index: 1000;
+  display: block;    
+  overflow-x: hidden;
+  overflow-y: auto;
+  background-color: rgba(255, 0, 0, 0.8);       
+  font-size: 1em;
+  line-height: 1.2em;
+  /*text-shadow: white 0 1em 1.4em;*/
+}
+.sidebar ul li {
+  background-color: #CC2222;    
+  border-top: 1px solid rgba(255, 255, 255, 0.5);
+}
+.sidebar ul li:last-child {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+}
+.sidebar ul li a {
+  font-family: "play";
+  color: #F2F2F2;
+  font-weight: bold;
+}
+.sidebar ul li a:hover {
+  background-color: #9B1B1B;
+}
+.sibar ul li a:visited {
+  background-color: #9B1B1B; 
+}
+
+/* Font icons */
+.home:before {
+  content: '\e801'; 
+  font-family: 'home';
+  speak: none;
+  display: inline-block;
+  color: white;
+  padding-right: 1.2em; 
+}
+.feather:before {
+  content: '\e801'; 
+  font-family: 'feather';
+  speak: none;
+  display: inline-block;
+  color: white;
+  padding-right: 1.2em; 
+}
+.team:before {
+  content: '\e800'; 
+  font-family: 'team';
+  speak: none;
+  display: inline-block;
+  color: white;
+  padding-right: 1.2em; 
+}
+.trophy:before {
+  content: '\e800'; 
+  font-family: 'trophy';
+  speak: none;
+  display: inline-block;
+  color: white;
+  padding-right: 1.2em; 
+}
+.chat:before {
+  content: '\e801'; 
+  font-family: 'chat';
+  speak: none;
+  display: inline-block;
+  color: white;
+  padding-right: 1.2em; 
+}
+.config:before {
+  content: '\e800'; 
+  font-family: 'config';
+  speak: none;
+  display: inline-block;
+  color: white;
+  padding-right: 1.2em; 
+}
+.rules:before {
+  content: '\e801'; 
+  font-family: 'rules';
+  speak: none;
+  display: inline-block;
+  color: white;
+  padding-right: 1.2em; 
+}
+
+.avatar {
+  margin: 0 auto !important;
+  /* Kids do not try this at home */
+  text-align: center;
+}
+
+.nickname {
+  font-family: "play";
+  font-size: 2em;
+  color: #F2F2F2;
+  text-align: center;
+  margin: 1em 0;
+  font-weight: bold;
+}

@@ -1,7 +1,7 @@
-<%= form_for @user_session, :remote => true, :format => :json,
-	:html => { :id => 'new_user_session' } do |f| %>
+<%= form_for @user_session,
+	:url => user_sessions_path do |f| %>
 	<div class="form">
-		<h2 class="title-game">Entrar no Jogo</h2>
+		<h2 class="title-game-home">Entrar no Jogo</h2>
 		<!-- E-mail -->
 		<div class="form-group">
 		    <%= f.text_field :email, placeholder: "Entre com seu e-mail",

@@ -4,7 +4,7 @@ class CreateUsers < ActiveRecord::Migration
       t.string :nikename, null: false
       t.string :email, null: false
       t.string :password_digest, null:false
-      t.string :gender, null: false
+      t.string :gender, null: true
       t.string :institution, null: true;
       t.string :course, null: true
       t.string :profile, null: false
@@ -13,3 +13,4 @@ class CreateUsers < ActiveRecord::Migration
     end
   end
 end
+ 

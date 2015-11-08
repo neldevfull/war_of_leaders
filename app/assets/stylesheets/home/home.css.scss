@@ -1,16 +1,10 @@
-/* Initialize Style start */
-html, body { 
-    margin:0; 
-    height: 100%;
-}
-/* end */
-
-/* -- Home -- start */
+/* Vars */
+$font-size: 1.2em;
 
 /* Background start */
 .bg {
     width: 100%;
-    background-image: url('background-home.jpg');
+    background-image: url('../background-home.jpg');
     /*background:
         linear-gradient(27deg, #151515 5px, transparent 5px) 0 5px,
         linear-gradient(207deg, #151515 5px, transparent 5px) 10px 0px,
@@ -68,16 +62,9 @@ html, body {
     float: right;
     /*background-color: green;*/
 }
-.form {
-    width: 75%;
-    margin: 0 auto 2em auto;
-    padding: .1em 1em 1em 1em;
-    border-radius: .5em;
-    background-color: rgba(255, 255, 255, .9) !important; 
-}
-.title-game {
+.title-game-home {
     font-family: 'play';
-    font-size: 1.2em;
+    font-size: $font-size;
 }
 .box-right p {
     padding: .5em 0 0 0;
@@ -87,13 +74,4 @@ html, body {
 
 /* -- Home -- end */
 
-/* -- Footer -- start */
-footer {
-    width: 100%;
-    height: 100%;
-    background-color: #900;
-    font-size: bolder;
-    color: #fff;
-    text-align: center;
-}
 /* end */
