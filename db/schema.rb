@@ -11,30 +11,51 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 3) do
+ActiveRecord::Schema.define(version: 4) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "games", force: :cascade do |t|
-    t.integer  "user_id",    default: 0
     t.string   "title"
     t.string   "image"
     t.string   "slogan"
     t.integer  "status"
-    t.datetime "created_at",             null: false
-    t.datetime "updated_at",             null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
-  add_index "games", ["user_id"], name: "index_games_on_user_id", using: :btree
+  create_table "phases", force: :cascade do |t|
+    t.integer  "game_id",    null: false
+    t.string   "name"
+    t.string   "logotype"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "phases", ["game_id"], name: "index_phases_on_game_id", using: :btree
+
+  create_table "starts", force: :cascade do |t|
+    t.integer  "user_id",     null: false
+    t.integer  "game_id",     null: false
+    t.integer  "number_team", null: false
+    t.string   "key_master",  null: false
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  add_index "starts", ["game_id"], name: "index_starts_on_game_id", using: :btree
+  add_index "starts", ["user_id"], name: "index_starts_on_user_id", using: :btree
 
   create_table "teams", force: :cascade do |t|
-    t.integer  "user_id",    default: 0
-    t.integer  "number"
-    t.datetime "created_at",             null: false
-    t.datetime "updated_at",             null: false
+    t.integer  "start_id",   null: false
+    t.integer  "user_id",    null: false
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
+  add_index "teams", ["start_id"], name: "index_teams_on_start_id", using: :btree
   add_index "teams", ["user_id"], name: "index_teams_on_user_id", using: :btree
 
   create_table "users", force: :cascade do |t|
@@ -49,6 +70,9 @@ ActiveRecord::Schema.define(version: 3) do
     t.datetime "updated_at",      null: false
   end
 
-  add_foreign_key "games", "users"
+  add_foreign_key "phases", "games"
+  add_foreign_key "starts", "games"
+  add_foreign_key "starts", "users"
+  add_foreign_key "teams", "starts"
   add_foreign_key "teams", "users"
 end

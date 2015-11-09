@@ -2,15 +2,46 @@
 	<div class="row">
 		<div class="col-md-12"><!-- Painel info jogo em andamento -->
 	        <div class="panel panel-default">
-	            <div class="panel-heading">
-	                <h3><strong>Para dar início ao Jogo</strong></h3>
-	            </div>
-	            <div class="panel-body">
-	                <h4>Descrição:</h4>
-	                <p>
-	                    A plataforma War of Leaders procura proporcionar tanto ao aluno "jogador" quanto ao professor "mestre" um formato diferenciado de aprendizado, procurando incentivar o trabalho em equipe e censo de liderança, em um exercício similar a uma avaliação. Os conteúdos são todos relacionados à área de TI, contendo tanto níveis mais básicos quanto níveis mais avançados.<br><br>Instruções ao Professor:<br>Antes de dar andamento ao jogo é necessário que tenha lido as informações sobre a plataforma na página inicial, caso não tenha lido clique <a href="#"><strong>aqui</strong></a>. A pós [...]
-	                </p>
-	                <p><a href=""><strong>Leia mais.</strong></a></p>
+	            	<%if @games_of_user %>
+	            		<% @games_of_user.each do |game| %>	
+	            			<div class="panel panel-default">
+					            <div class="panel-heading">
+					            	<h3><strong>Seu último jogo em andamento</strong></h3>					                
+					            </div>
+					            <div class="panel-body">
+					                <div class="logo-games" 
+					                	style="float: left; margin-right: 2em">
+					                	<%= image_tag(game["image"], :alt => game["title"]) %>
+					                </div>
+					                <h4 style="text-align:left;"
+					                	class="game-title">
+					                	<%= " #{game["title"]} | Chave Mestra: #{game['key_master']}"%>
+					                </h4>
+					                <div class="progressbar">
+		                                <p class="progressbar-value" aria-hidden="true">6%</p>
+		                                <progress class="progressbar-bar" max="100" value="6">
+		                                    <p>Seu progresso é de 6%.</p>
+		                                </progress>
+		                            </div>
+		                            <%=
+		                            	link_to "Continuar Jogo",
+		                            	root_path,
+		                            	class: "btn btn-primary"
+		                            %>
+					            </div>  
+					        </div>          			
+	            		<% end %>
+	            	<% else %>
+			            <div class="panel-heading">
+			                <h3><strong>Para dar início ao Jogo</strong></h3>
+			            </div>
+			            <div class="panel-body">
+		                <h4>Descrição:</h4>
+		                <p>
+		                    A plataforma War of Leaders procura proporcionar tanto ao aluno "jogador" quanto ao professor "mestre" um formato diferenciado de aprendizado, procurando incentivar o trabalho em equipe e censo de liderança, em um exercício similar a uma avaliação. Os conteúdos são todos relacionados à área de TI, contendo tanto níveis mais básicos quanto níveis mais avançados.<br><br>Instruções ao Professor:<br>Antes de dar andamento ao jogo é necessário que tenha lido as informações sobre a plataforma na página inicial, caso não tenha lido <a href="#"><strong>clilque aqui</strong></a>
+		                </p>
+		                <p><a href=""><strong>Leia mais.</strong></a></p>
+		            <% end %>
 	            </div>
 	        </div>
 	    </div><!-- /Painel info jogo em andamento -->
@@ -20,16 +51,18 @@
 				<!-- Painel informativo -->
 		        <div class="panel panel-default">
 		            <div class="panel-heading">
-		                <h4 class="game-title"><%= game.title %></h4>
+		                <h4 class="game-title"><%= game["title"] %></h4>
 		            </div>
 		            <div class="panel-body">
 		                <div class="logo-games">
-		                	<%= image_tag(game.image, :alt => game.title) %>
+		                	<%= image_tag(game["image"], :alt => game["title"]) %>
 		                </div>
-		                <button class="game btn btn-success 
-		                	btn-group-justified btn-start-game" type="button">
-		                	Iniciar o Jogo
-		                </button>
+		                <%=
+		                	link_to "Start Game",
+		                	new_starts_path(game["id"]),
+		                	class: "game btn btn-success 
+		                		btn-group-justified btn-start-game"
+		                %>
 		            </div>
 		            <div class="panel-heading">
 		                <h4>Informações</h4></div>

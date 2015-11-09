@@ -1,4 +1,13 @@
 module MainModule
+	extend ActiveSupport::Concern
+
+	protected
+
+	# Generate Token
+	def generate_token
+		SecureRandom.hex(3) 
+	end
+	
 	def success_message(action, string)
 		return "Sucesso ao #{action} #{string}"
 	end

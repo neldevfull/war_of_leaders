@@ -29,9 +29,18 @@ Rails.application.routes.draw do
 	get "games" => "games#index",
 		as: :index_games
 
+	# Game Starts
+	resource :starts, only: [:create]
+	get "starts/:id" => "starts#new",
+		as: :new_starts
+	get "start/:id" => "starts#show",
+		as: :show_starts		
+
 	# Teams
 	resource :teams, only: [:create, :update]
 	get "teams" => "teams#index",
-		as: :index_teams	
+		as: :index_teams
+	get "showteams" => "teams#index",
+		as: :show_teams	
 
 end

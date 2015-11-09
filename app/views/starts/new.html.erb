@@ -1,0 +1,50 @@
+<div class="container-fluid box-container">
+	<div class="row">
+		<div class="col-md-12"><!-- Painel info jogo em andamento -->
+	        <div class="panel panel-default">
+	            <div class="panel-heading">
+	            	<h2>
+	            		<strong>
+	            			<%= @game.title %>
+	            		</strong>
+	            	</h2>
+	                <h3 style="color: #7F7F7F">
+	                	<strong>
+	                		Mestre, é hora de criar os Times para que o Jogo tenha início
+	                	</strong>
+	                </h3>
+	            </div>
+	            <div class="panel-body">
+	            	<%= form_for @start do |f| %>
+	            		<label class="alert alert-warning"
+	            			style="margin: 1em 0 2em 0; display: block">	            			
+	            			Porquê é necessário criar Times ?
+	            			<a href="#"><strong>Clique aqui para saber</strong></a>
+	            		</label>
+	            		<label class="alert alert-warning"
+	            			style="margin: 2em 0; display: block">	            			
+	            			Dúvidas sobre como jogar o Game ?
+	            			<a href="#"><strong>Clique aqui para saber</strong></a>
+	            		</label>
+            			<div class="form-group row">	            				
+		            		<div style = "margin: 1em 0; width: 30%">	            			
+			            		<%= f.text_field :number_team, 
+			            			placeholder: "No máximo 8 times, no mínimo 2",
+									class: "form-control"  %>
+		            		</div>
+							<div class="errors-user">
+								<%= flash[:notice] %>
+							</div>
+            			</div>            			
+						<div class="button-group"
+							style="width:30%">
+					    	<%= f.submit "Criar!",
+								class: "btn btn-success _btn-usercad" %>
+					    </div>
+					    <%= hidden_field_tag 'game_id', params[:id]%>
+	            	<% end %>
+	            </div>
+	        </div>
+	    </div>
+	</div>        
+</div>	        

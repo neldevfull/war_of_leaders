@@ -8,7 +8,7 @@ class User < ActiveRecord::Base
 	include Validations
 
 	# Relantionship
-	has_many :games
+	has_many :start
 	has_many :team
 
 	# Passw secure

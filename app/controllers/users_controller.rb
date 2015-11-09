@@ -1,11 +1,9 @@
 # Requires
 require 'main_module'
-require 'user_module'
 
 class UsersController < ApplicationController
 	# Includes
 	include MainModule
-	include UserModule
 
 	def index
 		@users = User.all
@@ -22,6 +20,8 @@ class UsersController < ApplicationController
 		# Save User
 		@user = User.new user_params
 		if @user.save
+			user_session = UserSession.new(session)
+			user_session.store(@user)
 			if profile == "player"
 				respond_to do |format|
 					format.html {

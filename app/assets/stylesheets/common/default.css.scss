@@ -3,7 +3,7 @@ $font-size: 2em;
 
 /* Initialize */
 * {
-    font-family: "lato";
+    font-family: "play";
 }
 html, body { 
     margin:0; 
@@ -51,4 +51,56 @@ body {
 .logo-games img {
     display: block !important;
     margin: 0 auto !important;
+}
+
+/* Progressbar */
+.progressbar{
+    width: 78%;
+    
+    background:#f2f3f5;
+    padding:1em;
+    margin: 0 2em 2em 0;
+    display:-webkit-flex;
+    display:-ms-flexbox;
+    display:flex;-webkit-align-items:center;
+    -ms-flex-align:center;
+    align-items:center;
+    
+}
+.progressbar-value{
+    font-weight:700;
+    padding-right:.75em;
+}
+.progressbar-bar{
+    -webkit-flex-grow:1;
+    -ms-flex-positive:1;
+    flex-grow:1;
+    -webkit-flex-shrink:2;
+    -ms-flex-negative:2;
+    flex-shrink:2;
+    min-width:0;
+    width:100px;
+    height:1em;
+    -webkit-appearance:none;
+    -moz-appearance:none;
+    appearance:none;
+    border:none;
+    color:#67C163;
+    background-color:#fff;
+}
+.progressbar-bar::-webkit-progress-bar{
+    background-color:#fff;
+}
+.progressbar-bar::-webkit-progress-value{
+    background-color:#67C163;
+    background-image:repeating-linear-gradient(-45deg,#62B960,#62B960 15px,#67C163 15px,#67C163 27px);
+}
+.progressbar-bar::-moz-progress-bar{
+    background-color:#67C163;
+    background-image:repeating-linear-gradient(-45deg,#62B960,#62B960 15px,#67C163 15px,#67C163 27px);
+}
+.progressbar-bar::-ms-fill{
+    background-color:#67C163;
+    background-image:repeating-linear-gradient(-45deg,#62B960,#62B960 15px,#67C163 15px,#67C163 27px);
+    border:none;
 }

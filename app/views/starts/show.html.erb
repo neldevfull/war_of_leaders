@@ -1,0 +1,49 @@
+<div class="container-fluid box-container">
+	<div class="row">
+		<div class="col-md-12"><!-- Painel info jogo em andamento -->
+	        <div class="panel panel-default">
+	            <div class="panel-heading">
+	                <h3 class="alert alert-success">
+	                	<strong>
+	                		Jogo iniciado com Sucesso!
+	                		A Chave Mestra é 
+	                		<%= @start.key_master %>
+	                	</strong>
+	                </h3>
+	            </div>
+	            <div class="panel-body">
+	                <h4>Leia com atenção:</h4>
+	                <p style="font-size: 1.2em">
+	                	Ok o jogo foi iniciado! Foram criados
+	                	<span class="alert-warning"><%= @start.number_team %></span>
+	                	times com os nomes:
+	                	<span class="alert-success"><%= @names %></span>
+	                	A Chave Mestra é
+	                	<span class="alert-danger"><%= @start.key_master%></span>, essa chave é responsável
+	                	por permitir que os jogadores iniciem no jogo.
+	                	Com isso, deve ser comunicado a todos os jogadores qual é a Chave Mestra
+	                	para que esses possam dar inicio ao jogo.
+	                	Após todos os jogadores iniciarem o jogo e formarem os times, clique no
+	                	botão <span class="alert-success">Iniciar o Jogo</span>	                	
+	                </p>
+	                <p>
+	                	Caso não saiba como funciona a Chave Mestra, ou qual procedimento seguir
+	                	nesse momento <a href="#"><strong>clique aqui</strong></a>
+	                </p>
+		            <div class="group-button">
+		            	<%=
+		            		link_to "Iniciar Jogo",
+		            		root_path,
+		            		class: "game btn btn-success"
+		            	%>
+		            	<%=
+		            		link_to "Voltar",
+		            		root_path,
+		            		class: "btn btn-default"
+		            	%>
+		            </div>
+	            </div>
+	        </div>
+	     </div>
+	</div>
+</div>
