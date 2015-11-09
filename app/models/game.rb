@@ -7,12 +7,12 @@ class Game < ActiveRecord::Base
 	has_one    :start
 	has_many   :phase
 
-	def uninitiated_games
+	def uninitiated_games(user_id)
 		connect = get_connection()
 		connect.select_all(
 			"SELECT id, title, image, slogan FROM games
 			 WHERE games.id NOT IN 
-			 	(SELECT id FROM starts);")
+			 	(SELECT id FROM starts WHERE user_id = #{user_id});")
 	end
 
 	def initialized_games(user_id)
@@ -22,7 +22,7 @@ class Game < ActiveRecord::Base
 			    starts.key_master
 			FROM games 
 			JOIN starts ON games.id = starts.game_id
-			WHERE starts.user_id = 1;")
+			WHERE starts.user_id = #{user_id};")
 	end
 
 	private 

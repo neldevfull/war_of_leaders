@@ -19,15 +19,13 @@ class UserSessionsController < ApplicationController
 			if user.profile == "master"
 				respond_to do |format|
 					format.html {
-						redirect_to index_masters_path,
-						notice: "Autenticado com sucesso"
+						redirect_to index_masters_path
 					}
 				end
 			else
 				respond_to do |format|
 					format.html {
-						redirect_to index_players_path,
-						notice: "Autenticado com sucesso"
+						redirect_to index_players_path
 					}
 				end
 			end
@@ -45,8 +43,7 @@ class UserSessionsController < ApplicationController
 		user_session.destroy
 		respond_to do |format|
 			format.html { 
-				redirect_to new_user_sessions_path, 
-				notice: "Usuario nao esta logado" 
+				redirect_to root_path
 			}		      
 		end
 	end

@@ -9,7 +9,7 @@ class MastersController < ApplicationController
 		@games_of_user = Game.new.initialized_games(user.id)
 
 		# Uninitiated Games
-		@games = Game.new.uninitiated_games()
+		@games = Game.new.uninitiated_games(user.id)
 	end
 
 end

@@ -55,3 +55,15 @@
   font-weight: normal;
   font-style: normal;
 }
+@font-face {
+  font-family: "open";
+  src: url("../open.woff?55804081") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: "target";
+  src: url("../target.woff?30058546") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}

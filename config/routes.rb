@@ -34,7 +34,9 @@ Rails.application.routes.draw do
 	get "starts/:id" => "starts#new",
 		as: :new_starts
 	get "start/:id" => "starts#show",
-		as: :show_starts		
+		as: :show_starts
+	delete "starts/user_sessions" => "user_sessions#destroy",
+		as: :delete_starts_user_sessions		
 
 	# Teams
 	resource :teams, only: [:create, :update]
@@ -42,5 +44,8 @@ Rails.application.routes.draw do
 		as: :index_teams
 	get "showteams" => "teams#index",
 		as: :show_teams	
+
+	get "phases/:id" => "phases#index",
+		as: :index_phases		
 
 end

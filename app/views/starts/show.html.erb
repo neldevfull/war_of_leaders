@@ -13,7 +13,7 @@
 	            </div>
 	            <div class="panel-body">
 	                <h4>Leia com atenção:</h4>
-	                <p style="font-size: 1.2em">
+	                <p class="paragraph">
 	                	Ok o jogo foi iniciado! Foram criados
 	                	<span class="alert-warning"><%= @start.number_team %></span>
 	                	times com os nomes:
@@ -33,7 +33,7 @@
 		            <div class="group-button">
 		            	<%=
 		            		link_to "Iniciar Jogo",
-		            		root_path,
+		            		index_phases_path(@start.game_id),
 		            		class: "game btn btn-success"
 		            	%>
 		            	<%=

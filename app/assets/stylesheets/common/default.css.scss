@@ -52,6 +52,30 @@ body {
     display: block !important;
     margin: 0 auto !important;
 }
+.logo-left img {
+    float: left; 
+    margin-right: 2em;
+}
+
+/* Title Game */
+.game-title {
+    font-family: "play";
+    font-size: 1.5em;
+    text-align: center;
+}
+.title-left {
+    text-align:left;
+}
+
+/* Large Size */
+.paragraph {
+    font-size: 1.2em;
+}
+
+/* Button start game */
+.btn-start-game {
+    margin: 1em 0;
+}
 
 /* Progressbar */
 .progressbar{
@@ -103,4 +127,31 @@ body {
     background-color:#67C163;
     background-image:repeating-linear-gradient(-45deg,#62B960,#62B960 15px,#67C163 15px,#67C163 27px);
     border:none;
+}
+
+/* Font icons */
+.open:before {
+  content: '\e800'; 
+  font-family: 'open';
+  speak: none;
+  display: inline-block;
+  color: white;
+  padding-right: 1.2em; 
+}
+.target:before {
+  content: '\e800'; 
+  font-family: 'target';
+  speak: none;
+  display: inline-block;
+  color: white;
+  padding-right: 1.2em; 
+}
+.game:before {
+  content: '\e801'; 
+  font-family: 'game';
+  font-size: 1.2em;
+  speak: none;
+  display: inline-block;
+  color: white;
+  padding-right: 1.2em; 
 }

@@ -1,0 +1,41 @@
+<div class="container-fluid box-container">
+	<div class="row">
+		<h2>
+			<strong>
+				<%= @game_title %>
+			</strong>
+		</h2>
+		<% count = 0 %>
+		<% @phases.each do |phase| %>
+			<div class="col-md-12"><!-- Painel info jogo em andamento -->
+				<div class="panel panel-default">
+	                <div class="panel-heading">
+	                    <h3 class="gred">
+	                    	<strong>
+	                    		Fase <%= count += 1 %> - <%= phase.name %>
+	                    	</strong>
+	                    </h3>
+	                </div>
+	                <div class="panel-body">
+	                    <p class="paragraph">
+	                    	Nessa fase os jogadores terão que responder perguntas objetivas
+	                    	sobre esse componente responsável por fazer dos computadores
+	                    	máquinas incríveis, serão 5 perguntas diferentes por jogadores,
+	                   		que deverão responder em até 40 minutos	                    	
+	                    </p>
+                        <%=
+                        	link_to "Start Game",
+                        	root_path,
+                        	class: "game btn btn-success"
+                        %>
+                        <%=
+                        	link_to "Consultar perguntas",
+                        	root_path,
+                        	class: "target btn btn-info"
+                        %>
+	                </div>
+	            </div>
+		    </div><!-- /Painel info jogo em andamento -->	    			
+		<% end %>
+	</div>	
+</div>	
