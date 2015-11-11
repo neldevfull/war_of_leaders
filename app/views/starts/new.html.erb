@@ -9,28 +9,48 @@
 	            		</strong>
 	            	</h2>
 	                <h3 style="color: #7F7F7F">
-	                	<strong>
-	                		Mestre, é hora de criar os Times para que o Jogo tenha início
-	                	</strong>
+	                	<% if @user.profile == "master" 
+	                		label_user = "Porquê é necessário criar Times ?"
+	                		%>
+		                	<strong>
+		                		Mestre, é hora de criar os Times 
+		                		para que o Jogo tenha início
+		                	</strong>
+		                <% else 
+		                	label_user ="Porquê é necessário inserir 
+		                	a Chave Mestra ?"
+		                	%>
+		                	<strong>
+		                		Jogador, é hora de começar o jogo
+		                		insira a Chave Mestra e clique 
+		                		em Liberar
+		                	</strong>
+		                <% end %>
 	                </h3>
 	            </div>
 	            <div class="panel-body">
 	            	<%= form_for @start do |f| %>
 	            		<label class="alert alert-warning"
 	            			style="margin: 1em 0 2em 0; display: block">	            			
-	            			Porquê é necessário criar Times ?
+	            			<%= label_user %>
 	            			<a href="#"><strong>Clique aqui para saber</strong></a>
-	            		</label>
+	            		</label>		            		
 	            		<label class="alert alert-warning"
 	            			style="margin: 2em 0; display: block">	            			
 	            			Dúvidas sobre como jogar o Game ?
 	            			<a href="#"><strong>Clique aqui para saber</strong></a>
 	            		</label>
             			<div class="form-group row">	            				
-		            		<div style = "margin: 1em 0; width: 30%">	            			
-			            		<%= f.text_field :number_team, 
-			            			placeholder: "No máximo 8 times, no mínimo 2",
-									class: "form-control"  %>
+		            		<div style = "margin: 1em 0; width: 30%">
+		            			<% if @user.profile == "master" %>	            			
+				            		<%= f.text_field :number_team, 
+				            			placeholder: "No máximo 8 times, no mínimo 2",
+										class: "form-control"  %>
+								<% else %>
+									<%= f.text_field :key_master, 
+				            			placeholder: "Entre com a Chave Mestra",
+										class: "form-control"  %>
+								<% end %>
 		            		</div>
 							<div class="errors-user">
 								<%= flash[:notice] %>

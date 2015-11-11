@@ -1,0 +1,38 @@
+<div class="container-fluid box-container">
+	<div class="row">
+		<div class="col-md-12"><!-- Painel info jogo em andamento -->
+	        <div class="panel panel-default">
+	            <div class="panel-heading">
+	                <h3 class="title-default">
+	                		O Jogo vai começar -
+	                		<span>
+	                			<%= @phase.name%>
+	                		</span> 
+	                </h3>
+	            </div>
+	            <div class="panel-body">
+	                <p class="paragraph">
+	                	Falta pouco para o jogo começar!
+	                	Reuna os jogadores, verifique se todos
+	                	estão preparados, e dê início a grande batalha
+	                </p>
+	                <p class="paragraf alert alert-danger">
+	                	Ao startar o Game o crônometro começa a rodar,
+	                	os jogadores tem 40 minutos para finalizar o jogo
+	                </p>
+	                <h2 class="subtitle-default">Tempo do jogo</h2>	
+	                <div class="digital">
+	                	00:00
+	                </div>
+		            <div class="group-button">
+		            	<%=
+		            		link_to "Start Game",
+		            		root_path,
+		            		class: "game btn btn-success"
+		            	%>
+		            </div>
+	            </div>
+	        </div>
+	     </div>
+	</div>
+</div>

@@ -8,6 +8,10 @@
   src: url("../lato.ttf");
 }
 @font-face {
+  font-family: "digital";
+  src: url("../digital.ttf");
+}
+@font-face {
   font-family: "home";
   src: url("../home.woff?81344841") format("woff");
   font-weight: normal;

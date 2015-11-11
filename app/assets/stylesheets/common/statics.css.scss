@@ -36,14 +36,13 @@
   z-index: 1000;
   display: block;    
   overflow-x: hidden;
-  overflow-y: auto;
-  background-color: rgba(255, 0, 0, 0.8);       
+  overflow-y: auto;      
   font-size: 1em;
   line-height: 1.2em;
   /*text-shadow: white 0 1em 1.4em;*/
 }
 .sidebar ul li {
-  background-color: #CC2222;    
+  background-color: #37375E;    
   border-top: 1px solid rgba(255, 255, 255, 0.5);
 }
 .sidebar ul li:last-child {
@@ -53,12 +52,6 @@
   font-family: "play";
   color: #F2F2F2;
   font-weight: bold;
-}
-.sidebar ul li a:hover {
-  background-color: #9B1B1B;
-}
-.sibar ul li a:visited {
-  background-color: #9B1B1B; 
 }
 
 /* Font icons */

@@ -18,14 +18,11 @@
 	                </div>
 	                <div class="panel-body">
 	                    <p class="paragraph">
-	                    	Nessa fase os jogadores terão que responder perguntas objetivas
-	                    	sobre esse componente responsável por fazer dos computadores
-	                    	máquinas incríveis, serão 5 perguntas diferentes por jogadores,
-	                   		que deverão responder em até 40 minutos	                    	
+	                    	<%= phase.description %>                    	
 	                    </p>
                         <%=
                         	link_to "Start Game",
-                        	root_path,
+                        	index_phasestarts_path(phase.id),
                         	class: "game btn btn-success"
                         %>
                         <%=

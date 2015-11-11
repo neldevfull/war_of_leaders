@@ -4,7 +4,7 @@ Rails.application.routes.draw do
 
 	# Users
 	resources :users, only: [:create, :update]
-	# get "users" => "users#index", as: :index_users
+	get "users" => "users#index", as: :index_users
 	get "users"  => "users#new", 
 		as: :new_user
 	get "user/:id/edit" => "users#edit", 
@@ -16,14 +16,6 @@ Rails.application.routes.draw do
 		as: :new_user_sessions
 	get  "login" => "user_sessions#new",
 		as: :get_user_sessions
-
-	# Player
-	get "players" => "players#index",
-		as: :index_players
-
-	# Master
-	get "masters" => "masters#index",
-		as: :index_masters
 
 	# Games
 	get "games" => "games#index",
@@ -45,7 +37,16 @@ Rails.application.routes.draw do
 	get "showteams" => "teams#index",
 		as: :show_teams	
 
+	# Phase
 	get "phases/:id" => "phases#index",
-		as: :index_phases		
+		as: :index_phases	
+
+	# PhaseStarts
+
+	resource :phasestarts, only: [:create]
+	get "phasestarts/:id" => "phasestarts#index",
+		as: :index_phasestarts	
+	delete "phasestarts/user_sessions" => "user_sessions#destroy",
+		as: :delete_phasestarts_user_sessions			
 
 end

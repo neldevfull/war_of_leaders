@@ -39,12 +39,34 @@ body {
     background-color: rgba(255, 255, 255, .9) !important; 
 }
 
+/* Title Default */
+.title-default {
+  font-weight: bold;
+  font-size: 2em;
+  color: #3C763D;
+  border-bottom: 1px solid #C4C4C4;
+}
+.title-default span {
+  color: #848484;
+}
+.subtitle-default {
+  font-size: 2em;
+  color: black;
+  margin-bottom: -1em;
+}
+
+/* Digital */
+.digital {
+  font-family: 'digital';
+  font-size: 16em;
+  color: #990000;
+}
+
 /* Title Game */
 .title-game {
     font-family: "play";
     margin-bottom: .5em;
     font-size: $font-size;
-    text-align: center;
 }
 
 /* Logo Games */

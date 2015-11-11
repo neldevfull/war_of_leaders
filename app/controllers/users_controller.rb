@@ -5,8 +5,16 @@ class UsersController < ApplicationController
 	# Includes
 	include MainModule
 
+	# Before Action
+	before_action :get_user_session, only: :index
+
 	def index
-		@users = User.all
+		# Get game starts to user
+		user = get_user_session()
+		@games_of_user = Game.new.initialized_games(user.id)
+
+		# Uninitiated Games
+		@games = Game.new.uninitiated_games(user.id)
 	end
 
 	def new
@@ -22,21 +30,7 @@ class UsersController < ApplicationController
 		if @user.save
 			user_session = UserSession.new(session)
 			user_session.store(@user)
-			if profile == "player"
-				respond_to do |format|
-					format.html {
-						redirect_to :controller => 'players', 
-						:action => 'index'
-					}
-				end
-			else
-				respond_to do |format|
-					format.html {
-						redirect_to :controller => 'masters', 
-						:action => 'index'
-					}
-				end
-			end
+			redirect_to index_users_path
 		else
 			respond_to do |format|
 				format.html {

@@ -32,19 +32,7 @@ class ApplicationController < ActionController::Base
   def require_no_authentication
     if user_session_present?
       user = current_user
-
-      if user.profile = "master"
-        path = index_masters_path
-      else
-        path = index_players_path
-      end
-
-	    respond_to do |format|
-	      format.html { 
-		      redirect_to path, 
-		      alert: "Usuario logado" 
-	      }		      
-	    end
+	    redirect_to index_users_path
     end
   end
 

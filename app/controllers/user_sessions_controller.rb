@@ -16,36 +16,16 @@ class UserSessionsController < ApplicationController
 			
 			user = @user_session.current_user()
 			
-			if user.profile == "master"
-				respond_to do |format|
-					format.html {
-						redirect_to index_masters_path
-					}
-				end
-			else
-				respond_to do |format|
-					format.html {
-						redirect_to index_players_path
-					}
-				end
-			end
+			redirect_to index_users_path
 		else			
-			respond_to do |format|
-				format.html {
-					redirect_to get_user_sessions_path,
-					notice: "Credenciais nao conferem"
-				}
-			end		
+			redirect_to get_user_sessions_path,
+				notice: "Credenciais nao conferem"	
 		end
 	end
 
 	def destroy
 		user_session.destroy
-		respond_to do |format|
-			format.html { 
-				redirect_to root_path
-			}		      
-		end
+		redirect_to root_path
 	end
 
 end

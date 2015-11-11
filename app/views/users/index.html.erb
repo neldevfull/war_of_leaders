@@ -1,3 +1,80 @@
-<ul style="margin-top:50px;">	
-	<%= render 'users' %>
-</ul>
+<div class="container-fluid box-container">
+	<div class="row">
+		<div class="col-md-12"><!-- Painel info jogo em andamento -->
+	        <div class="panel panel-default">
+	            	<% if @games_of_user.present? %>
+	            		<% @games_of_user.each do |game| %>	
+	            			<div class="panel panel-default">
+					            <div class="panel-heading">
+					            	<h3><strong>Seu último jogo em andamento</strong></h3>					                
+					            </div>
+					            <div class="panel-body">
+					                <div class="logo-games logo-left">
+					                	<%= image_tag(game["image"], :alt => game["title"]) %>
+					                </div>
+					                <h4 class="game-title title-left">
+					                	<%= " #{game["title"]} | Chave Mestra: #{game['key_master']}"%>
+					                </h4>
+					                <div class="progressbar">
+		                                <p class="progressbar-value" aria-hidden="true">6%</p>
+		                                <progress class="progressbar-bar" max="100" value="6">
+		                                    <p>Seu progresso é de 6%.</p>
+		                                </progress>
+		                            </div>
+		                            <%=
+		                            	link_to "Start Game",
+		                            	index_phases_path(game["id"]),
+		                            	class: "game btn btn-primary"
+		                            %>
+					            </div>  
+					        </div>          			
+	            		<% end %>
+	            	<% else %>
+			            <div class="panel-heading">
+			                <h3><strong>Para dar início ao Jogo</strong></h3>
+			            </div>
+			            <div class="panel-body">
+		                <h4>Descrição:</h4>
+		                <p>
+		                    A plataforma War of Leaders procura proporcionar tanto ao aluno "jogador" quanto ao professor "mestre" um formato diferenciado de aprendizado, procurando incentivar o trabalho em equipe e censo de liderança, em um exercício similar a uma avaliação. Os conteúdos são todos relacionados à área de TI, contendo tanto níveis mais básicos quanto níveis mais avançados.<br><br>Instruções ao Professor:<br>Antes de dar andamento ao jogo é necessário que tenha lido as informações sobre a plataforma na página inicial, caso não tenha lido <a href="#"><strong>clilque aqui</strong></a>
+		                </p>
+		                <p><a href=""><strong>Leia mais.</strong></a></p>
+		            <% end %>
+	            </div>
+	        </div>
+	    </div><!-- /Painel info jogo em andamento -->
+		<!-- Coluna de cursos -->
+		<% @games.each do |game| %>
+			<div class="col-md-4">
+				<!-- Painel informativo -->
+		        <div class="panel panel-default">
+		            <div class="panel-heading">
+		                <h4 class="game-title"><%= game["title"] %></h4>
+		            </div>
+		            <div class="panel-body">
+		                <div class="logo-games">
+		                	<%= image_tag(game["image"], :alt => game["title"]) %>
+		                </div>
+		                <%=
+		                	link_to "Liberar Game",
+		                	new_starts_path(game["id"]),
+		                	class: "open btn btn-success 
+		                		btn-group-justified btn-start-game"
+		                %>
+		            </div>
+		            <div class="panel-heading">
+		                <h4>Informações</h4></div>
+		            <div class="panel-body">
+		                <div class="list-group">
+		                    <a href="#" class="list-group-item">Sobre o Jogo</a>
+		                    <a href="#" class="list-group-item">Regras</a>
+		                    <a href="#" class="list-group-item">Jogos pelo mundo</a>
+		                </div>
+		            </div>
+		        </div>		
+		    </div>
+		<% end %>		    
+
+	</div>	
+
+</div>	

@@ -1,6 +1,37 @@
-<aside class="sidebar">
+<%
+	if @user.profile == "master"
+		profile     = "master"
+		background  = "rgba(55, 55, 94, 0.8);" 
+		menu        = "#37375E"
+		hover_visit = "#1D1D38" 
+	else
+		profile     = "player"
+		background  = "rgba(90, 90, 90, 0.8);" 
+		menu        = "#636363"
+		hover_visit = "#4F4F4F"
+	end
+%>
+
+<style>	
+	<%=
+		"
+		.sidebar ul li {
+	  		background-color: #{menu};
+	  	}
+		.sidebar ul li a:hover {
+			background-color: #{hover_visit};
+		}
+		.sibar ul li a:visited {
+		 	background-color: #{hover_visit}; 
+		}
+		"
+	%>
+</style>
+
+<aside class="sidebar"
+	style="background-color: <%= background %>">
 	<div class="avatar">					
-		<% if @user.profile == "master" %>
+		<% if profile == "master" %>
 			<%= image_tag("avatar_master.png", :alt => "player") %>
 		<% else %>
 			<%= image_tag("player.png", :alt => "master") %>
@@ -12,21 +43,15 @@
 	<ul class="nav nav-sidebar">
 		<li>
 			<%=
-				if @user.profile == "master" 
-					link_to "Home",
-					index_masters_path,
-					class: "home"
-				else
-					link_to "Home",
-					index_players_path,
-					class: "home"
-				end
+				link_to "Home",
+				index_users_path,
+				class: "home"
 			%>
 		</li>
 		<li>
 			<%= 
 				link_to "Editar Perfil",
-				index_masters_path,
+				index_users_path,
 				class: "feather"
 			%>
 		</li>
@@ -40,28 +65,28 @@
 		<li>
 			<%= 
 				link_to "Rancking",
-				index_masters_path,
+				index_users_path,
 				class: "trophy"
 			%>
 		</li>
 		<li>
 			<%= 
 				link_to "Chat",
-				index_masters_path,
+				index_users_path,
 				class: "chat"
 			%>
 		</li>
 		<li>
 			<%= 
 				link_to "Configurações",
-				index_masters_path,
+				index_users_path,
 				class: "config"
 			%>
 		</li>
 		<li>
 			<%= 
 				link_to "Regras",
-				index_masters_path,
+				index_users_path,
 				class: "rules"
 			%>
 		</li>		

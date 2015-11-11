@@ -4,8 +4,7 @@ class CreateStarts < ActiveRecord::Migration
       t.belongs_to :user,
         index: true, foreign_key: true,
         null: false
-      t.belongs_to :game,
-        index: true, foreign_key: true,
+      t.belongs_to :game, foreign_key: true,
         null: false
       t.integer :number_team, null: false
       t.string :key_master, null: false	

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 4) do
+ActiveRecord::Schema.define(version: 5) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -26,14 +26,27 @@ ActiveRecord::Schema.define(version: 4) do
   end
 
   create_table "phases", force: :cascade do |t|
-    t.integer  "game_id",    null: false
-    t.string   "name"
-    t.string   "logotype"
+    t.integer  "game_id",     null: false
+    t.string   "name",        null: false
+    t.string   "description", null: false
+    t.integer  "time",        null: false
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  add_index "phases", ["game_id"], name: "index_phases_on_game_id", using: :btree
+
+  create_table "phasestarts", force: :cascade do |t|
+    t.integer  "phase_id",   null: false
+    t.integer  "user_id",    null: false
+    t.datetime "date_ini"
+    t.datetime "date_end"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  add_index "phases", ["game_id"], name: "index_phases_on_game_id", using: :btree
+  add_index "phasestarts", ["phase_id"], name: "index_phasestarts_on_phase_id", using: :btree
+  add_index "phasestarts", ["user_id"], name: "index_phasestarts_on_user_id", using: :btree
 
   create_table "starts", force: :cascade do |t|
     t.integer  "user_id",     null: false
@@ -44,7 +57,6 @@ ActiveRecord::Schema.define(version: 4) do
     t.datetime "updated_at",  null: false
   end
 
-  add_index "starts", ["game_id"], name: "index_starts_on_game_id", using: :btree
   add_index "starts", ["user_id"], name: "index_starts_on_user_id", using: :btree
 
   create_table "teams", force: :cascade do |t|
@@ -71,6 +83,8 @@ ActiveRecord::Schema.define(version: 4) do
   end
 
   add_foreign_key "phases", "games"
+  add_foreign_key "phasestarts", "phases"
+  add_foreign_key "phasestarts", "users"
   add_foreign_key "starts", "games"
   add_foreign_key "starts", "users"
   add_foreign_key "teams", "starts"

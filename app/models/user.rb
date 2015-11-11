@@ -10,6 +10,7 @@ class User < ActiveRecord::Base
 	# Relantionship
 	has_many :start
 	has_many :team
+	has_many :phasestart
 
 	# Passw secure
 	has_secure_password
