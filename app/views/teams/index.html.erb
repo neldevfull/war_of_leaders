@@ -1,0 +1,57 @@
+<div class="container-fluid box-container">
+	<div class="row">
+		<div class="col-md-12"><!-- Painel info jogo em andamento -->
+	    	<%  
+	    		@teams.each do |team|
+	    			%>
+	    				<div class="panel panel-default">
+	    					<div class="panel-heading"
+	    						style="background-color: <%= team[:color]%>">
+	    						<%= team[:team]  %>	    						
+	    					</div>
+	    					<div class="panel-body">
+		    					<table class="table table-hover">
+	    							<tr>
+	    								<td rowspan="2">	    								
+	    									<%= form_for @team do |f| %>
+	    										<%= f.hidden_field :key_master, :value => @key_master %>
+	    										<%= f.hidden_field :user_id, :value => @user.id %>
+	    										<%= f.hidden_field :name, :value => team[:team] %>
+	    										<% if team[:part] == 0 %>
+	    											<%= f.submit "Entrar", 
+	    												class: "btn btn_info" %>
+	    										<% else %>
+	    											<a href="team" data-method="delete">
+	    												Sair
+	    											</a>
+	    										<% end %>
+	    									<% end %>
+	    									<span style="display:block">Jogadores</span>
+	    								</td>
+	    								<td>Pontos por fase</td>
+	    							</tr>
+	    								<tr>
+	    								<% @phases.each do |phase| %>
+	    									<td><%= phase.name %></td>
+	    								<% end %>	    		
+	    							</tr>
+	    							<tr>
+	    								<% if team[:players].count > 0 %>
+		    								<% team[:players].each do |player| %>
+		    									<td><%= player %></td>
+		    								<% end %>
+		    							<% else %>
+		    								<td> 	Não há jogadores</td>
+		    							<% end %>
+	    							</tr>
+	    						</table>
+	    					</div>	
+	    				</div>
+	    			<%
+	    		end
+	    	%>
+	    </div>    		    
+
+	</div>	
+
+</div>	

@@ -20,11 +20,19 @@
 	                    <p class="paragraph">
 	                    	<%= phase.description %>                    	
 	                    </p>
-                        <%=
-                        	link_to "Start Game",
-                        	index_phasestarts_path(phase.id),
-                        	class: "game btn btn-success"
-                        %>
+	                    <% if @user.profile == "master" %>
+	                        <%=
+	                        	link_to "Start Game",
+	                        	index_phasestarts_path(phase.id),
+	                        	class: "game btn btn-success"
+	                        %>
+	                    <% else %>
+	                    	<%=
+	                        	link_to "Start Game",
+	                        	startplayer_phasestarts_path(phase.id),
+	                        	class: "game btn btn-success"
+	                        %>
+	                    <% end %>
                         <%=
                         	link_to "Consultar perguntas",
                         	root_path,

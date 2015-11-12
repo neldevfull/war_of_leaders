@@ -19,4 +19,18 @@ class Start < ActiveRecord::Base
 		end
 	end
 
+	def get_start(key_master, user_id)
+		connect = get_connection()
+		connect.select_all(
+			"SELECT game_id, number_team FROM starts
+			WHERE key_master = '#{key_master}'
+			AND user_id = #{user_id} LIMIT 1")
+	end
+
+	private 
+
+	def get_connection
+		Start.connection
+	end
+
 end

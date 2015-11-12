@@ -23,30 +23,37 @@ Rails.application.routes.draw do
 
 	# Game Starts
 	resource :starts, only: [:create]
-	get "starts/:id" => "starts#new",
+	get "starts/:game_id" => "starts#new",
 		as: :new_starts
-	get "start/:id" => "starts#show",
+	get "start/:key_master" => "starts#show",
 		as: :show_starts
 	delete "starts/user_sessions" => "user_sessions#destroy",
 		as: :delete_starts_user_sessions		
 
 	# Teams
 	resource :teams, only: [:create, :update]
-	get "teams" => "teams#index",
+	get "teams/:key_master" => "teams#index",
 		as: :index_teams
 	get "showteams" => "teams#index",
-		as: :show_teams	
+		as: :show_teams
+	delete "teams/team" => "teams#destroy",
+		as: :destroy_teams
+	delete "teams/user_sessions" => "user_sessions#destroy",
+		as: :destroy_teams_user_sessions
 
 	# Phase
 	get "phases/:id" => "phases#index",
 		as: :index_phases	
+	delete "phases/user_sessions" => "user_sessions#destroy",
+		as: :delete_phases_user_sessions
 
 	# PhaseStarts
-
 	resource :phasestarts, only: [:create]
 	get "phasestarts/:id" => "phasestarts#index",
 		as: :index_phasestarts	
 	delete "phasestarts/user_sessions" => "user_sessions#destroy",
 		as: :delete_phasestarts_user_sessions			
+	get "phasestarts/startplayer/:key_master" => "phasestarts#startplayer",
+		as: :startplayer_phasestarts
 
 end

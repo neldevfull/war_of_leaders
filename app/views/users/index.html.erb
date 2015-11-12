@@ -26,6 +26,11 @@
 		                            	index_phases_path(game["id"]),
 		                            	class: "game btn btn-primary"
 		                            %>
+		                            <%=
+		                            	link_to "Times",
+		                            	index_teams_path(game["key_master"]),
+		                            	class: "team btn btn-warning"
+		                            %>
 					            </div>  
 					        </div>          			
 	            		<% end %>

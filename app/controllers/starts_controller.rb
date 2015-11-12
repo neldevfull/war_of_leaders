@@ -12,7 +12,7 @@ class StartsController < ApplicationController
 
 	def new
 		@user = get_user_session()
-		@game = Game.find(params[:id])
+		@game = Game.find(params[:game_id])
 		get_start()
 	end
 
@@ -48,10 +48,10 @@ class StartsController < ApplicationController
 			if start.save
 				if profile == "master"
 					redirect_to(
-						show_starts_path(start))
+						show_starts_path(key_master))
 				else
 					redirect_to (
-						index_phases_path(game_id))
+						index_teams_path(key_master))
 				end
 			else		
 				success = false
@@ -69,7 +69,7 @@ class StartsController < ApplicationController
 	def show
 		@names  = ""
 		comma   = ","
-		@start  = Start.find(params[:id])
+		@start  = Start.find_by(key_master: params[:key_master])
 		names   = Team.new.get_teams()
 		counter = @start.number_team 
 

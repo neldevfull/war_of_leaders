@@ -1,9 +1,7 @@
 class CreateTeams < ActiveRecord::Migration
   def change
-    create_table :teams do |t|      
-      t.belongs_to :start,
-        index: true, foreign_key: true,
-        null: false
+    create_table :teams, id: false do |t|            
+      t.string :key_master
       t.belongs_to :user,
         index: true, foreign_key: true,
         null: false
@@ -11,5 +9,8 @@ class CreateTeams < ActiveRecord::Migration
       
       t.timestamps null: false
     end
+
+    execute "ALTER TABLE teams ADD CONSTRAINT pk_teams
+      PRIMARY KEY (key_master, user_id)"
   end
 end

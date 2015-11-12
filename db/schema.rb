@@ -48,26 +48,25 @@ ActiveRecord::Schema.define(version: 5) do
   add_index "phasestarts", ["phase_id"], name: "index_phasestarts_on_phase_id", using: :btree
   add_index "phasestarts", ["user_id"], name: "index_phasestarts_on_user_id", using: :btree
 
-  create_table "starts", force: :cascade do |t|
+  create_table "starts", id: false, force: :cascade do |t|
+    t.string   "key_master",  null: false
     t.integer  "user_id",     null: false
     t.integer  "game_id",     null: false
     t.integer  "number_team", null: false
-    t.string   "key_master",  null: false
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
   end
 
   add_index "starts", ["user_id"], name: "index_starts_on_user_id", using: :btree
 
-  create_table "teams", force: :cascade do |t|
-    t.integer  "start_id",   null: false
+  create_table "teams", id: false, force: :cascade do |t|
+    t.string   "key_master", null: false
     t.integer  "user_id",    null: false
     t.string   "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  add_index "teams", ["start_id"], name: "index_teams_on_start_id", using: :btree
   add_index "teams", ["user_id"], name: "index_teams_on_user_id", using: :btree
 
   create_table "users", force: :cascade do |t|
@@ -87,6 +86,5 @@ ActiveRecord::Schema.define(version: 5) do
   add_foreign_key "phasestarts", "users"
   add_foreign_key "starts", "games"
   add_foreign_key "starts", "users"
-  add_foreign_key "teams", "starts"
   add_foreign_key "teams", "users"
 end

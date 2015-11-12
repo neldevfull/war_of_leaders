@@ -4,7 +4,7 @@ class Game < ActiveRecord::Base
 
 	# Realtionship
 	belongs_to :user
-	has_one    :start
+	has_many   :start
 	has_many   :phase
 
 	# Data Access Object
@@ -21,7 +21,9 @@ class Game < ActiveRecord::Base
 	def initialized_games(user_id)
 		connect = get_connection()
 		connect.select_all(
-			"SELECT games.id AS id, title, image, slogan,
+			"SELECT games.id AS id, 
+				starts.user_id,  
+				title, image, slogan,
 			    starts.key_master
 			FROM games 
 			JOIN starts ON games.id = starts.game_id
