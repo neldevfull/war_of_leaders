@@ -58,7 +58,7 @@ body {
 /* Digital */
 .digital {
   font-family: 'digital';
-  font-size: 16em;
+  font-size: 13em;
   color: #990000;
 }
 
@@ -176,4 +176,33 @@ body {
   display: inline-block;
   color: white;
   padding-right: 1.2em; 
+}
+.plus:before {
+  content: '\e801'; 
+  font-family: 'plus';
+  font-size: 1.2em;
+  speak: none;
+  display: inline-block;
+  color: white;
+  padding-right: 1.2em; 
+}
+.upcloud:before {
+  content: '\e800'; 
+  font-family: 'upcloud';
+  speak: none;
+  display: inline-block;
+  color: white;
+  padding-right: 1.2em; 
+}
+
+
+/* Button add team */
+.btn-play {
+  width: 25% !important;
+  margin: 1em 0 !important;
+}
+.btn-play:hover, .btn-play:active {
+  background-color: #D1D1D1 !important;
+  color: #222 !important;  
+  border: 1px solid #31B0D5 !important;
 }

@@ -18,18 +18,29 @@
 	                </p>
 	                <p class="paragraf alert alert-danger">
 	                	Ao startar o Game o crônometro começa a rodar,
-	                	os jogadores tem 40 minutos para finalizar o jogo
+	                	os jogadores tem 
+	                	<span style="font-size:1.2em">40 minutos</span> 
+	                	para finalizar o jogo
 	                </p>
-	                <h2 class="subtitle-default">Tempo do jogo</h2>	
-	                <div class="digital">
-	                	00:00
+	                <h2 class="subtitle-default">
+	                	Tempo do jogo
+	                </h2>	
+	                <div onload="show();">	                	
+		                <div class="digital" id="time">
+		                	00:00:00:000
+		                </div>
 	                </div>
+	                <form>
+	                	<input type="hidden" 
+	                		id="phase_id" value="<%= @phase.id %>">
+	                	<input type="hidden" 
+	                		id="key_master" value="<%= @key_master %>">
+	                </form>
 		            <div class="group-button">
-		            	<%=
-		            		link_to "Start Game",
-		            		root_path,
-		            		class: "game btn btn-success"
-		            	%>
+		            	<button id="start_game" 
+		            		class="game btn btn-success">
+		            		Start Game
+		            	</button>
 		            </div>
 	            </div>
 	        </div>

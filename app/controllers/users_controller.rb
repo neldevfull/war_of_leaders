@@ -7,6 +7,7 @@ class UsersController < ApplicationController
 
 	# Before Action
 	before_action :get_user_session, only: :index
+	before_action :get_color_team, only: :index
 
 	def index
 		# Get game starts to user

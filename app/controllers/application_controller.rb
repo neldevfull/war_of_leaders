@@ -12,8 +12,21 @@ class ApplicationController < ActionController::Base
     UserSession.new(session)
   end
 
+  # Get user session
   def get_user_session
     @user = current_user()  
+  end
+
+  # Get Color Team
+  def get_color_team
+    user = current_user()
+    team = Team.find_by(user_id: user.id)
+
+    if team.present?
+      @name_team = team.name
+      @colors = [team.bgcolor, 
+        team.menucolor, team.hovercolor] 
+    end
   end
 
   # Check if user is authenticated

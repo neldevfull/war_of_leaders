@@ -70,14 +70,16 @@ class StartsController < ApplicationController
 		@names  = ""
 		comma   = ","
 		@start  = Start.find_by(key_master: params[:key_master])
-		names   = Team.new.get_teams()
+		teams   = Team.new.get_teams()
 		counter = @start.number_team 
 
-		while(counter > 0) do
-			@names += "#{names[counter]}#{comma} "
+		counter -= 1
+		while(counter >= 0) do
+			team = teams[counter]
+			@names += "#{team[:team]}#{comma} "
 			counter -= 1
 
-			if (counter - 1) == 0
+			if (counter - 1) == -1
 				comma = "."
 			end
 		end

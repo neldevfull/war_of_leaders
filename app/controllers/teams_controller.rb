@@ -3,6 +3,8 @@ class TeamsController < ApplicationController
 	# Before Action
 	before_action :get_user_session, 
 		only: [:index, :new]
+	before_action :get_color_team,
+		only: [:index]
 
 	def index
 		@team       = Team.new
@@ -11,7 +13,7 @@ class TeamsController < ApplicationController
 		@key_master = params[:key_master]
 		@user       = get_user_session
 
-		results = Team.new.get_user_by_teams() 
+		results = Team.new.get_user_by_teams(@key_master) 
 		@teams  = Team.new.get_teams()
 
 		@teams.each do |team|
@@ -45,6 +47,10 @@ class TeamsController < ApplicationController
 		@team.key_master = params[:team][:key_master]
 		@team.user_id    = params[:team][:user_id]
 		@team.name       = params[:team][:name] 
+		@team.bgcolor    = params[:team][:bgcolor]
+		@team.menucolor  = params[:team][:menucolor]
+		@team.hovercolor = params[:team][:hovercolor]
+
 		if @team.save
 			redirect_to index_teams_path(@team.key_master)
 		else

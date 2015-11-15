@@ -27,7 +27,7 @@ Rails.application.routes.draw do
 		as: :new_starts
 	get "start/:key_master" => "starts#show",
 		as: :show_starts
-	delete "starts/user_sessions" => "user_sessions#destroy",
+	delete "start/user_sessions" => "user_sessions#destroy",
 		as: :delete_starts_user_sessions		
 
 	# Teams
@@ -42,18 +42,25 @@ Rails.application.routes.draw do
 		as: :destroy_teams_user_sessions
 
 	# Phase
-	get "phases/:id" => "phases#index",
+	get "phases/:game_id/:key_master" => "phases#index",
 		as: :index_phases	
 	delete "phases/user_sessions" => "user_sessions#destroy",
 		as: :delete_phases_user_sessions
 
 	# PhaseStarts
 	resource :phasestarts, only: [:create]
-	get "phasestarts/:id" => "phasestarts#index",
-		as: :index_phasestarts	
+	get "phasestarts/:id/:key_master" => "phasestarts#new",
+		as: :new_phasestarts	
 	delete "phasestarts/user_sessions" => "user_sessions#destroy",
 		as: :delete_phasestarts_user_sessions			
-	get "phasestarts/startplayer/:key_master" => "phasestarts#startplayer",
+	get "startplayer/:phase_id/:key_master" => "phasestarts#startplayer",
 		as: :startplayer_phasestarts
+	get "phasestarts" => "phasestarts#show",
+		as: :show_phasestarts
+
+	# Plays
+	resource :plays, only: [:create]
+	get "plays/:key_master/:game_id/:phase_id" => "plays#new",
+		as: :new_plays
 
 end

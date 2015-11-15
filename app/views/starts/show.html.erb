@@ -33,7 +33,7 @@
 		            <div class="group-button">
 		            	<%=
 		            		link_to "Iniciar Jogo",
-		            		index_phases_path(@start.game_id),
+		            		index_phases_path(@start.game_id, @start.key_master),
 		            		class: "game btn btn-success"
 		            	%>
 		            	<%=

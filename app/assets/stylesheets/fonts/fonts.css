@@ -71,3 +71,15 @@
   font-weight: normal;
   font-style: normal;
 }
+@font-face {
+  font-family: "plus";
+  src: url("../plus.woff?23971349") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: "upcloud";
+  src: url("../upcloud.woff?86735738") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}

@@ -23,13 +23,15 @@
 	                    <% if @user.profile == "master" %>
 	                        <%=
 	                        	link_to "Start Game",
-	                        	index_phasestarts_path(phase.id),
+	                        	new_phasestarts_path(phase.id, @key_master),
+	                        	:target => "_blank",
 	                        	class: "game btn btn-success"
 	                        %>
 	                    <% else %>
 	                    	<%=
 	                        	link_to "Start Game",
-	                        	startplayer_phasestarts_path(phase.id),
+	                        	startplayer_phasestarts_path(phase.id, @key_master),
+	                        	:target => "_blank",
 	                        	class: "game btn btn-success"
 	                        %>
 	                    <% end %>

@@ -6,44 +6,56 @@
 	    			%>
 	    				<div class="panel panel-default">
 	    					<div class="panel-heading"
-	    						style="background-color: <%= team[:color]%>">
-	    						<%= team[:team]  %>	    						
+	    						style=" height:3.5em;
+	    						background-color: <%= team[:menucolor]%>">
+	    						<div style="float:left; font-size: 1.5em;
+	    							font-weight: bold; color: #F2F2F2">	    							
+	    							<%= team[:team]  %>	    						
+	    						</div>
+	    						<div style="float:right">	    							
+									<%= form_for @team do |f| %>
+										<%= f.hidden_field :key_master, :value => @key_master %>
+										<%= f.hidden_field :user_id, :value => @user.id %>
+										<%= f.hidden_field :name, :value => team[:team] %>
+										<%= f.hidden_field :bgcolor, :value => team[:bgcolor] %>
+										<%= f.hidden_field :menucolor, :value => team[:menucolor] %>
+										<%= f.hidden_field :hovercolor, :value => team[:hovercolor] %>
+										<% if team[:part] == 0 %>
+											<div class="button-group">
+												<%= f.submit "Entrar", 
+													class: "plus btn btn-default" %>
+											</div>
+										<% else %>
+											<a href="team" 
+												class="btn btn-default"
+												data-method="delete">
+												Sair
+											</a>
+										<% end %>
+									<% end %>
+	    						</div>
 	    					</div>
 	    					<div class="panel-body">
-		    					<table class="table table-hover">
-	    							<tr>
-	    								<td rowspan="2">	    								
-	    									<%= form_for @team do |f| %>
-	    										<%= f.hidden_field :key_master, :value => @key_master %>
-	    										<%= f.hidden_field :user_id, :value => @user.id %>
-	    										<%= f.hidden_field :name, :value => team[:team] %>
-	    										<% if team[:part] == 0 %>
-	    											<%= f.submit "Entrar", 
-	    												class: "btn btn_info" %>
-	    										<% else %>
-	    											<a href="team" data-method="delete">
-	    												Sair
-	    											</a>
-	    										<% end %>
-	    									<% end %>
-	    									<span style="display:block">Jogadores</span>
-	    								</td>
-	    								<td>Pontos por fase</td>
-	    							</tr>
+		    					<table class="table table-hover table table-bordered">
+		    						<thead>		    							
 	    								<tr>
-	    								<% @phases.each do |phase| %>
-	    									<td><%= phase.name %></td>
-	    								<% end %>	    		
-	    							</tr>
-	    							<tr>
-	    								<% if team[:players].count > 0 %>
-		    								<% team[:players].each do |player| %>
-		    									<td><%= player %></td>
-		    								<% end %>
-		    							<% else %>
-		    								<td> 	Não há jogadores</td>
-		    							<% end %>
-	    							</tr>
+	    									<th class="active">Jogadores</th>
+		    								<% @phases.each do |phase| %>
+		    									<th class="active"><%= phase.name %></th>
+		    								<% end %>	    		
+		    							</tr>
+		    						</thead>
+		    						<tbody>		    							
+		    							<tr>
+		    								<% if team[:players].count > 0 %>
+			    								<% team[:players].each do |player| %>
+			    									<th><%= player %></th>
+			    								<% end %>
+			    							<% else %>
+			    								<th>Não há jogadores</th>
+			    							<% end %>
+		    							</tr>
+		    						</tbody>
 	    						</table>
 	    					</div>	
 	    				</div>

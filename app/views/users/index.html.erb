@@ -16,14 +16,14 @@
 					                	<%= " #{game["title"]} | Chave Mestra: #{game['key_master']}"%>
 					                </h4>
 					                <div class="progressbar">
-		                                <p class="progressbar-value" aria-hidden="true">6%</p>
-		                                <progress class="progressbar-bar" max="100" value="6">
+		                                <p class="progressbar-value" aria-hidden="true">10%</p>
+		                                <progress class="progressbar-bar" max="100" value="10">
 		                                    <p>Seu progresso é de 6%.</p>
 		                                </progress>
 		                            </div>
 		                            <%=
 		                            	link_to "Start Game",
-		                            	index_phases_path(game["id"]),
+		                            	index_phases_path(game["id"], game["key_master"]),
 		                            	class: "game btn btn-primary"
 		                            %>
 		                            <%=

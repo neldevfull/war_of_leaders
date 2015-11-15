@@ -1,0 +1,66 @@
+<div class="container-fluid box-container">
+	<div class="row">
+		<h2 style="margin: .5em">
+			<strong>
+				<%= @game_title %>
+			</strong>
+		</h2>
+		<% count = 0 %>
+		<% @questions_play.each do |question| %>
+			<div class="col-md-12"><!-- Painel info jogo em andamento -->
+				<div class="panel panel-default">
+	                <div class="panel-heading" 
+	                	style="background-color: #D3D3D3;
+	                	font-size: .5em; padding: .01em 1em;">
+	                    <h3 class="gred"
+	                    	style="color: black">
+	                    	<strong>
+	                    		Etapa <%= count += 1 %>
+	                    	</strong>
+	                    </h3>
+	                </div>
+	                <div class="panel-body">
+	                    <p class="paragraph" 
+	                    	style="font-size: 1.5em; margin: .5em 0 1em 0">
+	                    	<%= question[:question].question %>                    	
+	                    </p>
+	                    <div class="btn-group btn-group-justified"
+	                    	style="font-size: 1.5em; width: 100%">
+	                    	<% question[:answers].each do |answer| %>
+	                    		<% if answer.question_id == question[:question].id %>
+	                    			<button 
+	                    				id="btn_play_<%= "#{question[:question].id}_#{answer.answer_id}" %>" 
+	                    				type="button" class="btn-play btn btn-default">
+	                    				<%= answer.answer %>	
+	                    			</button>
+	                    		<% end %>
+	                    	<% end %>
+	                    </div>
+	                </div>
+	            </div>
+		    </div><!-- /Painel info jogo em andamento -->	    			
+		<% end %>
+		<input type="hidden" id="key_master"
+			value="<%= @key_master%>">
+		<input type="hidden" id="phase_id"
+			value="<%= @phase_id%>">
+		<input type="hidden" id="question_max"
+			value="<%= @questions_play.count %>">
+		<div class="col-md-12"><!-- Painel info jogo em andamento -->
+			<div class="panel panel-default">
+                <div class="panel-heading" 
+                	style="background-color: #F2F2F2; color: black;
+	                	font-size: 1.2em; padding: 1em;">
+                	Enviar as 	respostas
+                </div>
+                <div class="panel-body">
+                	<button id="up_cloud" 
+                		class="upcloud btn btn-info"
+                		style="width: 25%;">
+                		Enviar
+                	</button>
+                </div>
+            </div>					
+        </div>
+	</div>	
+</div>	
